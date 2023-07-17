@@ -1,5 +1,7 @@
 pipeline {
     agent any
+     environment {
+       PATH= "/Users/user/maven/apache-maven-3.8.8/bin:$PATH"
 
     tools {
         // auto installed maven
@@ -22,12 +24,12 @@ pipeline {
         }  
         stage('maven and jacoco') {
             steps {
-                sh 'mvn clean install'
+                sh "mvn clean install"
                 //sh 'mvn sonar:sonar'
             }
          }
        stage('Sonarqube') {
-    environment {
+   
         scannerHome = tool 'Sonar'
     }
         steps {
