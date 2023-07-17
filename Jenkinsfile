@@ -16,7 +16,7 @@ pipeline {
         stage('Git Checkout') {
             steps {
                 
-                git credentialsId: 'dharmareddy', url: ''
+                git credentialsId: 'dharmareddy', url: 'https://github.com/dharmawip/devops-app'
             }
 
         }  
