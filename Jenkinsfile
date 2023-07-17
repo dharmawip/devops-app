@@ -32,7 +32,10 @@ pipeline {
     }
         steps {
         withSonarQubeEnv('SonarServer') {
-            sh "${scannerHome}/bin/sonar-scanner -Dsonar.projectKey=maven-git -Dsonar.sources=src/myappmain -Dsonar.java.binaries=target/classes/src/myappmain/ "
+            sh "sonar.projectVersion=1.0
+sonar.sources=src/main/java
+
+sonar.binaries=target/classes "
             //sh "${scannerHome}/bin/sonar-scanner"
           echo 'some'
         }
