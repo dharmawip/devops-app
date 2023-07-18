@@ -20,10 +20,9 @@ pipeline {
 
         }  
         stage('maven and jacoco') {
+            environment {
+            PATH= "/Users/user/maven/apache-maven-3.8.8/bin:$PATH"
             steps {
-                 environment {
-       PATH= "/Users/user/maven/apache-maven-3.8.8/bin:$PATH"
-
                 sh "mvn clean install"
                 //sh 'mvn sonar:sonar'
             }
