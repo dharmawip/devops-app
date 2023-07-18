@@ -1,10 +1,10 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  xsi:schemaLocation="http://maven.apache.org/POM/3.8.8 http://maven.apache.org/maven-v4_0_0.xsd">
  <properties>
          <maven.compiler.source>1.6</maven.compiler.source>
          <maven.compiler.target>1.6</maven.compiler.target>
  </properties>
-  <modelVersion>4.0.0</modelVersion>
+  <modelVersion>3.8.8</modelVersion>
   <groupId>com.devops</groupId>
   <artifactId>Demo1</artifactId>
   <packaging>jar</packaging>
@@ -15,7 +15,7 @@
     <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
-      <version>3.8.1</version>
+      <version>4.1.2</version>
       <scope>test</scope>
     </dependency>
   </dependencies>
@@ -42,13 +42,13 @@
 <repository>
 <id>central</id>
 <name>Anil-releases</name>
-<url>http://localhost:5040/artifactory/libs-release-local</url>
+<url>http://localhost:8080/artifactory/libs-release-local</url>
 </repository>
 
 <snapshotRepository>
 <id>snapshots</id>
 <name>Anil-snapshots</name>
-<url>http://localhost:5040/artifactory/libs-snapshot-local</url>
+<url>http://localhost:8080/artifactory/libs-snapshot-local</url>
 </snapshotRepository>
 </distributionManagement>
 
