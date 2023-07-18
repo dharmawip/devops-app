@@ -19,25 +19,19 @@ pipeline {
             }
 
         }  
-        stage('maven and jacoco') {
+       
+       stage('Sonarqube') {
             environment {
             PATH= "M2_HOME:$PATH"
-            steps {
-                sh "mvn clean install"
-                //sh 'mvn sonar:sonar'
+                scannerHome = tool 'Sonar'
             }
-         }
-       stage('Sonarqube') {
-   
-        scannerHome = tool 'Sonar'
-    }
-        steps {
-        withSonarQubeEnv('SonarServer') {
-            sh "${scannerHome}/bin/sonar-scanner D_sonar.projectVersion=1.0 D_sonar.sources=src/main/java D_sonar.binaries=target/classes "
-            //sh "${scannerHome}/bin/sonar-scanner"
-          echo 'some'
-        }
-        }
+           steps {
+               withSonarQubeEnv('SonarServer') {
+                   sh "${scannerHome}/bin/sonar-scanner D_sonar.projectVersion=1.0 D_sonar.sources=src/main/java D_sonar.binaries=target/classes "
+                   //sh "${scannerHome}/bin/sonar-scanner"
+                   echo 'some'
+               }
+           }
     }
        
         stage("Quality gate") {
