@@ -42,13 +42,13 @@
 <repository>
 <id>central</id>
 <name>Anil-releases</name>
-<url>http://localhost:8080/artifactory/libs-release-local</url>
+<url>http://localhost:5040/artifactory/libs-release-local</url>
 </repository>
 
 <snapshotRepository>
 <id>snapshots</id>
 <name>Anil-snapshots</name>
-<url>http://localhost:8080/artifactory/libs-snapshot-local</url>
+<url>http://localhost:5040/artifactory/libs-snapshot-local</url>
 </snapshotRepository>
 </distributionManagement>
 
