@@ -27,7 +27,7 @@ pipeline {
             }
            steps {
                withSonarQubeEnv('SonarServer') {
-                   sh "${scannerHome}/bin/sonar-scanner D_sonar.projectVersion=1.0 D_sonar.sources=src/main/java D_sonar.binaries=target/classes "
+                   sh "$C:\Users\user\maven\apache-maven-3.8.8\bin\mvn D_sonar.projectVersion=1.0 D_sonar.sources=src/main/java D_sonar.binaries=target/classes "
                    //sh "${scannerHome}/bin/sonar-scanner"
                    echo 'some'
                }
