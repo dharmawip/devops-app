@@ -29,7 +29,7 @@ pipeline {
                withSonarQubeEnv('SonarServer') {
                    mvn clean verify sonar:sonar \
                    -Dsonar.projectKey=maven-git \
-                   -Dsonar.host.url=https://localhost:9000 \
+                   -Dsonar.host.url=http:// 192.168.43.157:9000 \
                     -Dsonar.login=sqp_367cb43584649a44cbc618e61af59f2564d22dc4
                    echo 'some'
                }
