@@ -27,8 +27,10 @@ pipeline {
             }
            steps {
                withSonarQubeEnv('SonarServer') {
-                   sh "$C:/Users/user/maven/apache-maven-3.8.8/bin/mvn sonar.projectVersion=1.0 sonar.sources=src/main/java"
-                   //sh "${scannerHome}/bin/sonar-scanner"
+                   mvn clean verify sonar:sonar \
+                   -Dsonar.projectKey=maven-git \
+                   -Dsonar.host.url=http://localhost:9000 \
+                    -Dsonar.login=sqp_367cb43584649a44cbc618e61af59f2564d22dc4
                    echo 'some'
                }
            }
