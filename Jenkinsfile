@@ -34,8 +34,6 @@ pipeline {
                    echo 'some'
                }
            }
-    }
-       
         stage("Quality gate") {
             steps {
                 waitForQualityGate abortPipeline: false, credentialsId: 'sonarqubejenkin'
