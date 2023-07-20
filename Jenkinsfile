@@ -19,22 +19,7 @@ pipeline {
             }
 
         }  
-       
-       stage('Sonarqube') {
-            environment {
-            PATH= "M2_HOME:$PATH"
-                scannerHome = tool 'Sonar'
-            }
-           steps {
-               withSonarQubeEnv('SonarServer') {
-                   mvn clean verify sonar:sonar \
-                   -Dsonar.projectKey=maven-git \
-                   -Dsonar.host.url=http://192.168.43.157:9000 \
-                   -Dsonar.login=sqp_367cb43584649a44cbc618e61af59f2564d22dc4
-                   echo 'some'
-               }
-           }
-           stage('SonarQube Analysis') {
+        stage('SonarQube Analysis') {
                def scannerHome = tool 'SonarQube'
                withSonarQubeEnv('SonarQube') {
                    sh """/var/lib/jenkins/tools/hudson.plugins.sonar.SonarRunnerInstallation/SonarQube/bin/sonar-scanner \
