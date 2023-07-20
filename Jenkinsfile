@@ -19,7 +19,7 @@ pipeline {
             }
         }  
         stage('SonarQube Analysis') {
-               withSonarQubeEnv('SonarQube') {
+               withSonarQubeEnv {
                    sh """
                    -D sonar.login=admin \
                    -D sonar.password=DHA@rma456 \
