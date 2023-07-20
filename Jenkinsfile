@@ -17,11 +17,10 @@ pipeline {
                 
                 git credentialsId: 'dharmareddy', url: 'https://github.com/dharmawip/devops-app'
             }
-
         }  
         stage('SonarQube Analysis') {
                withSonarQubeEnv('SonarQube') {
-                   sh """/var/lib/jenkins/tools/hudson.plugins.sonar.SonarRunnerInstallation/SonarQube/bin/sonar-scanner \
+                   sh """
                    -D sonar.login=admin \
                    -D sonar.password=DHA@rma456 \
                    -D sonar.language=java \
