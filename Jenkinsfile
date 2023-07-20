@@ -18,7 +18,7 @@ pipeline {
                 git credentialsId: 'dharmareddy', url: 'https://github.com/dharmawip/devops-app'
             }
         }  
-        */stage('SonarQube Analysis') {
+        /*stage('SonarQube Analysis') {
             steps{
                withSonarQubeEnv {
                    sh """
@@ -32,7 +32,7 @@ pipeline {
                    -Dsonar.login=sqp_367cb43584649a44cbc618e61af59f2564d22dc4"""
                }
            }
-        }/*
+        }*/
         stage("Quality gate") {
             steps {
                 waitForQualityGate abortPipeline: false, credentialsId: 'sonarqubejenkin'
