@@ -19,6 +19,7 @@ pipeline {
             }
         }  
         stage('SonarQube Analysis') {
+            steps{
                withSonarQubeEnv {
                    sh """
                    -D sonar.login=admin \
@@ -31,6 +32,7 @@ pipeline {
                    -Dsonar.login=sqp_367cb43584649a44cbc618e61af59f2564d22dc4"""
                }
            }
+        }
         stage("Quality gate") {
             steps {
                 waitForQualityGate abortPipeline: false, credentialsId: 'sonarqubejenkin'
