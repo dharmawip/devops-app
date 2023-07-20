@@ -34,6 +34,20 @@ pipeline {
                    echo 'some'
                }
            }
+           stage('SonarQube Analysis') {
+               def scannerHome = tool 'SonarQube'
+               withSonarQubeEnv('SonarQube') {
+                   sh """/var/lib/jenkins/tools/hudson.plugins.sonar.SonarRunnerInstallation/SonarQube/bin/sonar-scanner \
+                   -D sonar.login=admin \
+                   -D sonar.password=DHA@rma456 \
+                   -D sonar.language=java \
+                   -D sonar.sources=devops-app/Demo1/src/main/java/com/devops/App.java\
+                   -D sonar.tests=devops-app/Demo1/src/test/java/com/devopstest/AppTest.java\
+                   -Dsonar.projectKey=maven-git \
+                   -Dsonar.host.url=http://192.168.43.157:9000 \
+                   -Dsonar.login=sqp_367cb43584649a44cbc618e61af59f2564d22dc4"""
+               }
+           }
         stage("Quality gate") {
             steps {
                 waitForQualityGate abortPipeline: false, credentialsId: 'sonarqubejenkin'
