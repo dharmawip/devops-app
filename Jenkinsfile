@@ -4,6 +4,10 @@ pipeline {
         // auto installed maven
         maven "MAVEN_HOME"
     }
+    environment {
+        CI = true
+        ARTIFACTORY_ACCESS_TOKEN = credevtials('artifactory-access-token')
+    }
 
     stages {
         stage('cleanup')
@@ -42,8 +46,7 @@ pipeline {
     
         stage('Deploy') {
             steps {
-                //sh 'mvn test'
-                echo 'deploying to nexus of target server'
+                sh 'jforg rt --url http://localhost:8082/artifactory/ --access-token ${ARTIFACTORY_ACCESS_TOKEN} ' 
             }
 
         }
